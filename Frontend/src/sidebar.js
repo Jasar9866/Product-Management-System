@@ -2,23 +2,30 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserGroup, faSignOutAlt, faReply, faUserCircle, faDashboard, faStaffAesculapius, faStore } from "@fortawesome/free-solid-svg-icons";
-
+import {
+  faUserGroup,
+  faSignOutAlt,
+  faReply,
+  faUserCircle,
+  faDashboard,
+  faStaffAesculapius,
+  faStore,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar1 = () => {
   const navigate = useNavigate();
   const { setIsLoggedIn } = useAuth();
-  const [showUsersDropdown, setShowUsersDropdown] = useState(false);
-  const [showBooksDropdown, setShowBooksDropdown] = useState(false);
-  const [showProductsDropdown, setShowProductsDropdown] = useState(false); // Define state for products dropdown
-  const [showFeedbacksDropdown, setShowFeedbacksDropdown] = useState(false);
+  const [showEmployeesDropdown, setShowEmployeesDropdown] = useState(false);
+  const [showCustomersDropdown, setShowCustomersDropdown] = useState(false);
+  const [showProductsDropdown, setShowProductsDropdown] = useState(false);
+  const [showReviewsDropdown, setShowReviewsDropdown] = useState(false);
 
   const userName = localStorage.getItem("userName");
 
-  const usersDropdownRef = useRef(null);
-  const booksDropdownRef = useRef(null);
+  const employeesDropdownRef = useRef(null);
+  const customersDropdownRef = useRef(null);
   const productsDropdownRef = useRef(null);
-  const feedbacksDropdownRef = useRef(null);
+  const reviewsDropdownRef = useRef(null);
 
   const logout = () => {
     localStorage.clear();
@@ -28,16 +35,28 @@ const Sidebar1 = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (usersDropdownRef.current && !usersDropdownRef.current.contains(event.target)) {
-        setShowUsersDropdown(false);
+      if (
+        employeesDropdownRef.current &&
+        !employeesDropdownRef.current.contains(event.target)
+      ) {
+        setShowEmployeesDropdown(false);
       }
-      if (booksDropdownRef.current && !booksDropdownRef.current.contains(event.target)) {
-        setShowBooksDropdown(false);
+      if (
+        customersDropdownRef.current &&
+        !customersDropdownRef.current.contains(event.target)
+      ) {
+        setShowCustomersDropdown(false);
       }
-      if (feedbacksDropdownRef.current && !feedbacksDropdownRef.current.contains(event.target)) {
-        setShowFeedbacksDropdown(false);
+      if (
+        reviewsDropdownRef.current &&
+        !reviewsDropdownRef.current.contains(event.target)
+      ) {
+        setShowReviewsDropdown(false);
       }
-      if (productsDropdownRef.current && !productsDropdownRef.current.contains(event.target)) {
+      if (
+        productsDropdownRef.current &&
+        !productsDropdownRef.current.contains(event.target)
+      ) {
         setShowProductsDropdown(false);
       }
     };
@@ -55,7 +74,7 @@ const Sidebar1 = () => {
       left: 0,
       bottom: 0,
       width: "250px",
-      zIndex: 1000
+      zIndex: 1000,
     },
     sidebarHeader: {
       display: "flex",
@@ -111,68 +130,156 @@ const Sidebar1 = () => {
 
   return (
     <div style={styles.sidebar}>
-        
-
-page content
-
       <div style={styles.sidebarHeader}>
         <h4 style={styles.headerTitle}>Jhon Keels Private Limited</h4>
       </div>
-      <div style={{ ...styles.linkContainer, textAlign: "left", marginLeft: "20px" }}>
-        <div style={styles.userInfo}><FontAwesomeIcon icon={faUserCircle} /> {userName}</div>
+      <div
+        style={{
+          ...styles.linkContainer,
+          textAlign: "left",
+          marginLeft: "20px",
+        }}
+      >
+        <div style={styles.userInfo}>
+          <FontAwesomeIcon icon={faUserCircle} /> {userName}
+        </div>
       </div>
       <div style={styles.linkContainer}>
         <Link to="/home" style={styles.link}>
           <FontAwesomeIcon icon={faDashboard} /> Dashboard
         </Link>
-        <div ref={usersDropdownRef}>
-          <div style={styles.link} onClick={() => setShowUsersDropdown(!showUsersDropdown)}>
+        <div ref={employeesDropdownRef}>
+          <div
+            style={styles.link}
+            onClick={() => setShowEmployeesDropdown(!showEmployeesDropdown)}
+          >
             <FontAwesomeIcon icon={faStaffAesculapius} /> Employees
           </div>
-          {showUsersDropdown && (
+          {showEmployeesDropdown && (
             <div style={styles.dropdown}>
-              <Link to="/allEmployees" style={{ ...styles.dropdownItem, ...(showUsersDropdown ? styles.dropdownItemHover : null) }}>Employees List</Link>
-             </div>
+              <Link
+                to="/allEmployees"
+                style={{
+                  ...styles.dropdownItem,
+                  ...(showEmployeesDropdown ? styles.dropdownItemHover : null),
+                }}
+              >
+                Employees List
+              </Link>
+            </div>
           )}
         </div>
-        <div ref={booksDropdownRef}>
-          <div style={styles.link} onClick={() => setShowBooksDropdown(!showBooksDropdown)}>
+        <div ref={customersDropdownRef}>
+          <div
+            style={styles.link}
+            onClick={() => setShowCustomersDropdown(!showCustomersDropdown)}
+          >
             <FontAwesomeIcon icon={faUserGroup} /> Customers
           </div>
-          {showBooksDropdown && (
+          {showCustomersDropdown && (
             <div style={styles.dropdown}>
-              <Link to="/allCustomers" style={{ ...styles.dropdownItem, ...(showBooksDropdown ? styles.dropdownItemHover : null) }}>Customer List</Link>
-              <Link to="/addCustomer" style={{ ...styles.dropdownItem, ...(showBooksDropdown ? styles.dropdownItemHover : null) }}>Add Customer</Link>
-              <Link to="/allCustomers" style={{ ...styles.dropdownItem, ...(showBooksDropdown ? styles.dropdownItemHover : null) }}>Edit Customer</Link>
+              <Link
+                to="/allCustomers"
+                style={{
+                  ...styles.dropdownItem,
+                  ...(showCustomersDropdown ? styles.dropdownItemHover : null),
+                }}
+              >
+                Customer List
+              </Link>
+              <Link
+                to="/addCustomer"
+                style={{
+                  ...styles.dropdownItem,
+                  ...(showCustomersDropdown ? styles.dropdownItemHover : null),
+                }}
+              >
+                Add Customer
+              </Link>
+              <Link
+                to="/allCustomers"
+                style={{
+                  ...styles.dropdownItem,
+                  ...(showCustomersDropdown ? styles.dropdownItemHover : null),
+                }}
+              >
+                Edit Customer
+              </Link>
             </div>
           )}
         </div>
         <div ref={productsDropdownRef}>
-          <div style={styles.link} onClick={() => setShowProductsDropdown(!showProductsDropdown)}>
+          <div
+            style={styles.link}
+            onClick={() => setShowProductsDropdown(!showProductsDropdown)}
+          >
             <FontAwesomeIcon icon={faStore} /> Product
           </div>
           {showProductsDropdown && (
             <div style={styles.dropdown}>
-              <Link to="/productList" style={{ ...styles.dropdownItem, ...(showProductsDropdown ? styles.dropdownItemHover : null) }}>Product List</Link>
-              <Link to="/addProduct" style={{ ...styles.dropdownItem, ...(showProductsDropdown ? styles.dropdownItemHover : null) }}>Add Product</Link>
-              <Link to="/productList" style={{ ...styles.dropdownItem, ...(showProductsDropdown ? styles.dropdownItemHover : null) }}>Manage Products</Link>
+              <Link
+                to="/productList"
+                style={{
+                  ...styles.dropdownItem,
+                  ...(showProductsDropdown ? styles.dropdownItemHover : null),
+                }}
+              >
+                Product List
+              </Link>
+              <Link
+                to="/addProduct"
+                style={{
+                  ...styles.dropdownItem,
+                  ...(showProductsDropdown ? styles.dropdownItemHover : null),
+                }}
+              >
+                Add Product
+              </Link>
+              <Link
+                to="/productList"
+                style={{
+                  ...styles.dropdownItem,
+                  ...(showProductsDropdown ? styles.dropdownItemHover : null),
+                }}
+              >
+                Manage Products
+              </Link>
             </div>
           )}
         </div>
-        <div ref={feedbacksDropdownRef}>
-          <div style={styles.link} onClick={() => setShowFeedbacksDropdown(!showFeedbacksDropdown)}>
+        <div ref={reviewsDropdownRef}>
+          <div
+            style={styles.link}
+            onClick={() => setShowReviewsDropdown(!showReviewsDropdown)}
+          >
             <FontAwesomeIcon icon={faReply} /> Reviews
           </div>
-          {showFeedbacksDropdown && (
+          {showReviewsDropdown && (
             <div style={styles.dropdown}>
-              <Link to="/review" style={{ ...styles.dropdownItem, ...(showFeedbacksDropdown ? styles.dropdownItemHover : null) }}>Send Review</Link>
-              <Link to="/reviewList" style={{ ...styles.dropdownItem, ...(showFeedbacksDropdown ? styles.dropdownItemHover : null) }}>View reviews</Link>
+              <Link
+                to="/review"
+                style={{
+                  ...styles.dropdownItem,
+                  ...(showReviewsDropdown ? styles.dropdownItemHover : null),
+                }}
+              >
+                Send Review
+              </Link>
+              <Link
+                to="/reviewList"
+                style={{
+                  ...styles.dropdownItem,
+                  ...(showReviewsDropdown ? styles.dropdownItemHover : null),
+                }}
+              >
+                View reviews
+              </Link>
             </div>
           )}
         </div>
       </div>
       <div style={styles.linkContainer}>
-        <div style={{ ...styles.link, marginTop: 'auto' }} onClick={logout}>
+        <div style={{ ...styles.link, marginTop: "auto" }} onClick={logout}>
           <FontAwesomeIcon icon={faSignOutAlt} /> Logout
         </div>
       </div>

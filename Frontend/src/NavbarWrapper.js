@@ -1,4 +1,3 @@
-// NavbarWrapper.js
 import React from 'react';
 import { useAuth } from './context/AuthContext';
 import Navbar from './navbar';

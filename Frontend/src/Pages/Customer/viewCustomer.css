@@ -1,0 +1,35 @@
+.view-customer-container {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 50px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.view-customer-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+.customer-detail {
+  margin-bottom: 15px;
+  font-family: "Roboto", sans-serif;
+}
+
+.customer-detail strong {
+  color: #555;
+  display: inline-block;
+  width: 150px;
+}
+
+.customer-detail span {
+  color: #333;
+}
+
+.view-customer-container .MuiPaper-root {
+  padding: 20px;
+  background-color: #fff;
+}

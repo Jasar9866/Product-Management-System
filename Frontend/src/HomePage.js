@@ -89,7 +89,7 @@ function HomePage() {
               style={styles.varietyImage}
             />
             <div className="inner-box" style={styles.innerBox}>
-              <h3>All Registered Customers</h3>
+              <h3>Customers</h3>
               <p style={styles.para}>
                 Our valued customers can enjoy exclusive offers and updates on
                 the latest products. Stay informed about sales and special

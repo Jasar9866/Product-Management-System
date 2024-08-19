@@ -1,5 +1,4 @@
 package com.assignment.Backend.Dto;
-
 public class EmployeeDTO {
 
     private Integer employeeid;

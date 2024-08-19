@@ -1,7 +1,6 @@
 package com.assignment.Backend.Entity;
 
 import jakarta.persistence.*;
-
 @Entity
 @Table(name = "customers")
 public class Customer {

@@ -64,7 +64,7 @@ function RegisteredEmployees() {
 
   return (
     <div style={styles.container}>
-      <h2>Registered Employees</h2>
+      <h2>Registered Employees List</h2>
       <div style={styles.tableResponsive}>
         <table style={styles.table}>
           <thead>

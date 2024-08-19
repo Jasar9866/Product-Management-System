@@ -87,7 +87,7 @@ function Login() {
 const styles = {
   background: {
     backgroundImage:
-      'url("https://png.pngtree.com/background/20230413/original/pngtree-business-e-shopping-picture-image_2422998.jpg")', // Image URL
+      'url("https://free-3dtextureshd.com/wallpapers/Abstract/Desktop%20version/1920%20x%201080/86_Abstract_Background_1920x1080px.jpg")', // Image URL
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "90vh",

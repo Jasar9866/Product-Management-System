@@ -1,5 +1,4 @@
 package com.assignment.Backend.Entity;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -9,7 +8,7 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int starRating; // Changed attribute name to starRating
+    private int starRating;
     private String message;
 
     public Review() {

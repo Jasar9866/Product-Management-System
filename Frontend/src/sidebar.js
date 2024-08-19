@@ -131,7 +131,7 @@ const Sidebar1 = () => {
   return (
     <div style={styles.sidebar}>
       <div style={styles.sidebarHeader}>
-        <h4 style={styles.headerTitle}>Jhon Keels Private Limited</h4>
+        <h4 style={styles.headerTitle}>Vinoraj Private Limited</h4>
       </div>
       <div
         style={{

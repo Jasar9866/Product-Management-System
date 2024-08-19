@@ -33,7 +33,6 @@ public class ProductController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-
     @PutMapping("/{productid}")
     public ResponseEntity<Product> updateProduct(@PathVariable Long productid, @RequestBody Product productDetails) {
         try {
@@ -43,13 +42,6 @@ public class ProductController {
             return ResponseEntity.notFound().build();
         }
     }
-
-
-
-
-
-
-
 
     @DeleteMapping("/{productid}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long productid) {

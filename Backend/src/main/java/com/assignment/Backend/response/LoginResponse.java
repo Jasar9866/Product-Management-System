@@ -1,6 +1,4 @@
-
 package com.assignment.Backend.response;
-
 public class LoginResponse {
 
     private String message;

@@ -29,7 +29,7 @@ function AddCustomer() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Assuming the API endpoint to create a member through POST
+    
     fetch("http://localhost:5055/api/customers/add", {
       method: "POST",
       headers: {

@@ -64,33 +64,13 @@ function Register() {
   };
 
   return (
-    <div
-      className="container-fluid"
-      style={{
-        backgroundRepeat: "no-repeat",
-        backgroundColor: "#f8f9fa",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div className="row p-3">
-        <div
-          className="col-sm-4 ms-auto me-auto pt-5 mt-3 shadow p-5 rounded"
-          style={{
-            background: "white",
-            borderRadius: "10px",
-          }}
-        >
-          <h4
-            style={{
-              fontWeight: "900",
-              fontFamily: "sen sarif",
-              textAlign: "center",
-            }}
-          >
+    <div style={styles.background}>
+      <div style={styles.overlay}>
+        <div className="shadow p-5 rounded" style={styles.formContainer}>
+          <h4 className="mb-4 text-center" style={styles.header}>
             Sign Up
           </h4>
-          <form className="ms-auto me-auto p-5" onSubmit={handleRegister}>
+          <form onSubmit={handleRegister}>
             <TextField
               id="employeename"
               label="Full Name"
@@ -184,8 +164,8 @@ function Register() {
             <Button
               variant="contained"
               type="submit"
-              className="w-100 mt-3 p-3 mb-5"
-              style={{ backgroundColor: "#032740", color: "#fff" }}
+              fullWidth
+              style={styles.button}
             >
               Register
             </Button>
@@ -196,5 +176,40 @@ function Register() {
     </div>
   );
 }
+
+const styles = {
+  background: {
+    backgroundImage:
+      'url("https://free-3dtextureshd.com/wallpapers/Abstract/Desktop%20version/1920%20x%201080/23_Abstract_Background_1920x1080px.jpg")', // Image URL
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    height: "90vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  overlay: {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  formContainer: {
+    maxWidth: "400px",
+    width: "100%",
+    background: "white",
+    borderRadius: "10px",
+    padding: "20px",
+  },
+  header: {
+    fontWeight: "900",
+    fontFamily: "Sen, sans-serif",
+  },
+  button: {
+    backgroundColor: "blue",
+    color: "#fff",
+  },
+};
 
 export default Register;

@@ -1,6 +1,4 @@
-
 package com.assignment.Backend.Entity;
-
 import jakarta.persistence.*;
 
 @Entity
